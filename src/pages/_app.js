@@ -23,15 +23,6 @@ export default function App({ Component, pageProps }) {
         />
 
         <script type="text/partytown" src="https://www.googletagmanager.com/gtm.js?id=GTM-P2SJ37K8"></script>
-        <script type="text/partytown" dangerouslySetInnerHTML={{
-          __html: `
-            window.dataLayer = window.dataLayer || [];
-            window.gtag = function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-
-            gtag('config', 'GTM-P2SJ37K8');
-          `,
-        }} />
           
       </Head>
       <Component {...pageProps} />
