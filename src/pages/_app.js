@@ -22,8 +22,18 @@ export default function App({ Component, pageProps }) {
           }}
         />
 
+        <script
+          type="text/partytown"
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function(w,l){
+                w[l]=w[l]||[];
+                w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+              })(window, dataLayer);`,
+          }}
+        />
         <script type="text/partytown" src="https://www.googletagmanager.com/gtm.js?id=GTM-P2SJ37K8"></script>
-          
+
       </Head>
       <Component {...pageProps} />
     </>
