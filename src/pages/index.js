@@ -12,7 +12,6 @@ export default function Home() {
   //   };
   // }, []);
   const handleClick = () => {
-    console.log('try button click');
     console.log('**** GTM Event Clicked ****');
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
@@ -27,7 +26,7 @@ export default function Home() {
       <main>
         <p id="output-script" suppressHydrationWarning />
 
-        <button onClick={handleClick}>Click</button>
+        <button onClick={handleClick}>Send GTM Event</button>
       </main>
     </>
   );

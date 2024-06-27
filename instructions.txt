@@ -1,4 +1,10 @@
-This is a demo project to try out Partytown JS
+This is a demo NextJS project to try out Partytown JS
+
+It shows a way to execute normal scripts in a partytown webworker
+It also shows a way to integarte Google Tag Manager and execute it in a Webworker
+
+
+Scripts running inside Partytown webworker can also access window, document objects
 
 Integrating Partytown JS:
 https://partytown.builder.io/nextjs
