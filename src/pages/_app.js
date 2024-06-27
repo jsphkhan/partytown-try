@@ -26,13 +26,29 @@ export default function App({ Component, pageProps }) {
           type="text/partytown"
           dangerouslySetInnerHTML={{
             __html: `
-              (function(w,l){
-                w[l]=w[l]||[];
-                w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
-              })(window, dataLayer);`,
+                (function (window, document, dataLayerName, i) {
+                  window[dataLayerName] = window[dataLayerName] || [];
+
+                  window[dataLayerName].push({ 'gtm.start': new Date().getTime(), 'event': 'gtm.js' });
+
+                  var firstScript = document.getElementsByTagName('script')[0];
+                  var gtmScript = document.createElement('script');
+                  var dataLayerParam = dataLayerName != 'dataLayer' ? '&l=' + dataLayerName : '';
+
+                  gtmScript.async = true;
+
+                  // ORIGINAL
+                  gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dataLayerParam;
+
+                  // HACK
+                  // gtmScript.src = './gtm.js?id=' + i + dataLayerParam;
+
+                  firstScript.parentNode.insertBefore(gtmScript, firstScript);
+                })(window, document, 'dataLayer', 'GTM-P2SJ37K8');
+              `,
           }}
         />
-        <script type="text/partytown" src="https://www.googletagmanager.com/gtm.js?id=GTM-P2SJ37K8"></script>
+        {/* <script type="text/partytown" src="https://www.googletagmanager.com/gtm.js?id=GTM-P2SJ37K8"></script> */}
 
       </Head>
       <Component {...pageProps} />
