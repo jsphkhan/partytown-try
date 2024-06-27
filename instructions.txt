@@ -1,0 +1,11 @@
+This is a demo project to try out Partytown JS
+
+Integrating Partytown JS:
+https://partytown.builder.io/nextjs
+
+
+Integrating Partytown JS for Google Tag Manager:
+https://partytown.builder.io/google-tag-manager
+https://partytown.builder.io/nextjs
+https://dev.to/valse/how-to-add-google-analytics-gtag-to-nextjs-using-partytown-bn4
+https://www.youtube.com/watch?v=DjUWMZAzOMA&t=248s
