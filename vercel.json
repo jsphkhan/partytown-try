@@ -1,3 +1,5 @@
 {
-    "devCommand": "npm run partytown && next dev"
+    "redirects": [
+        { "source": "/about", "destination": "/", "permanent": true }
+    ]
 }
