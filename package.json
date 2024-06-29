@@ -3,14 +3,18 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm run partytown && next dev",
+    "dev": "npm run partytown && node server/server.js",
     "build": "npm run partytown && next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server/server.js",
     "lint": "next lint",
     "partytown": "partytown copylib public/~partytown"
   },
   "dependencies": {
     "@builder.io/partytown": "^0.10.2",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "http-proxy-middleware": "^3.0.0",
     "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18"
