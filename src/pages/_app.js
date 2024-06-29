@@ -3,14 +3,15 @@ import { Partytown } from '@builder.io/partytown/react';
 
 export default function App({ Component, pageProps }) {
   const handleResolveUrl = (url, location, type) => {
+    console.log('** url: ', url.hostname);
     if (
       url.hostname.includes('google-analytics') ||
       url.hostname.includes('www.googletagmanager.com')
     ) {
-      console.log('url: ', url.hostname);
-      // const proxyUrl = new URL('https://cdn.builder.io/api/v1/proxy-api');
-      // proxyUrl.searchParams.append('url', url);
-      // return proxyUrl;
+      const proxyUrl = new URL('https://cdn.builder.io/api/v1/proxy-api');
+      proxyUrl.searchParams.append('url', url);
+      console.log('** proxyUrl', proxyUrl);
+      return proxyUrl;
     }
     return url;
   }
