@@ -24,9 +24,6 @@ app
     server.get('/ping', (req, res) => {
       res.status(200).send('pong');
     });
-    server.get('/health', (req, res) => {
-      res.status(200).send('success');
-    });
 
     // parse application/json
     server.use(bodyParser.json());
