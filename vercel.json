@@ -1,8 +1,19 @@
 {
     "redirects": [
-        { "source": "/about", "destination": "/", "permanent": true }
+        {
+            "source": "/about",
+            "destination": "/",
+            "permanent": true
+        }
     ],
     "rewrites": [
-        { "source": "/old", "destination": "/new" }
+        {
+            "source": "/old",
+            "destination": "/new"
+        },
+        {
+            "source": "/proxy",
+            "destination": "/new"
+        }
     ]
 }

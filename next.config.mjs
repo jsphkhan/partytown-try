@@ -11,6 +11,10 @@ const nextConfig = {
   //       source: '/old',
   //       destination: '/new',
   //     },
+  //     {
+  //       source: '/proxy',
+  //       destination: '/new',
+  //     },
   //   ]
   // }
 };

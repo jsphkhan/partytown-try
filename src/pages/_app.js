@@ -3,12 +3,14 @@ import { Partytown } from '@builder.io/partytown/react';
 
 export default function App({ Component, pageProps }) {
   const handleResolveUrl = (url, location, type) => {
-    console.log('** url: ', url.hostname);
+    const proxyServer = 'https://partytown-try.vercel.app';
     if (
       url.hostname.includes('google-analytics') ||
       url.hostname.includes('www.googletagmanager.com')
     ) {
-      const proxyUrl = new URL('https://cdn.builder.io/api/v1/proxy-api');
+      console.log('** url: ', url);
+      // const proxyUrl = new URL('https://cdn.builder.io/api/v1/proxy-api');
+      const proxyUrl = new URL(`${proxyServer}/proxy`);
       proxyUrl.searchParams.append('url', url);
       console.log('** proxyUrl', proxyUrl);
       return proxyUrl;
@@ -32,7 +34,7 @@ export default function App({ Component, pageProps }) {
             __html: `
               document.getElementById('output-script').textContent = 'hello';
               document.body.classList.add('completed');
-              console.log('hello from partytown');
+              console.log('hello from partytownjs');
               console.log('window: ', window.location.href);
             `,
           }}
