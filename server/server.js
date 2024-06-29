@@ -1,3 +1,7 @@
+/**
+ * A custom server cannot be deployed to Vercel
+ */
+
 require('dotenv').config();
 const express = require('express');
 const next = require('next');
@@ -26,6 +30,12 @@ app
 
     // parse application/json
     server.use(bodyParser.json());
+
+    // proxy api
+    server.use('/proxy-api', createProxyMiddleware({
+      target: 'https://www.googletagmanager.com',
+      changeOrigin: true
+    }));
 
     // routes
     server.all('*', (req, res) => {
