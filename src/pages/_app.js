@@ -3,17 +3,29 @@ import { Partytown } from '@builder.io/partytown/react';
 
 export default function App({ Component, pageProps }) {
   const handleResolveUrl = (url, location, type) => {
-    const proxyServer = 'http://localhost:3000'; //'https://partytown-try.vercel.app';
+    // const proxyServer = 'http://localhost:3000'; //'https://partytown-try.vercel.app';
+    // if (
+    //   url.hostname.includes('google-analytics') ||
+    //   url.hostname.includes('www.googletagmanager.com')
+    // ) {
+    //   console.log('** url: ', url);
+    //   const str = `${proxyServer}/proxy-api${url.pathname}${url.search}`;
+    //   const proxyUrl = new URL(str);
+    //   console.log('** proxyUrl', proxyUrl);
+    //   return proxyUrl;
+    // }
+    // return url;
+
+
     if (
       url.hostname.includes('google-analytics') ||
       url.hostname.includes('www.googletagmanager.com')
     ) {
-      console.log('** url: ', url);
-      const str = `${proxyServer}/proxy-api${url.pathname}${url.search}`;
-      const proxyUrl = new URL(str);
-      console.log('** proxyUrl', proxyUrl);
+      const proxyUrl = new URL('https://cdn.builder.io/api/v1/proxy-api');
+      proxyUrl.searchParams.append('url', url);
       return proxyUrl;
     }
+
     return url;
   }
   return (
@@ -65,6 +77,7 @@ export default function App({ Component, pageProps }) {
               `,
           }}
         />
+        <script type='text/partytown' src='https://www.googletagmanager.com/debug/bootstrap?id=GTM-P2SJ37K8&src=GTM&cond=2&gtm=45He46q0v9188129135za200'></script>
         {/* <script type="text/partytown" src="https://www.googletagmanager.com/gtm.js?id=GTM-P2SJ37K8"></script> */}
 
       </Head>
