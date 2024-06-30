@@ -77,8 +77,17 @@ export default function App({ Component, pageProps }) {
               `,
           }}
         />
-        <script type='text/partytown' src='https://www.googletagmanager.com/debug/bootstrap?id=GTM-P2SJ37K8&src=GTM&cond=2&gtm=45He46q0v9188129135za200'></script>
-        {/* <script type="text/partytown" src="https://www.googletagmanager.com/gtm.js?id=GTM-P2SJ37K8"></script> */}
+        {/* <script type='text/partytown' src='https://www.googletagmanager.com/debug/bootstrap?id=GTM-P2SJ37K8&src=GTM&cond=2&gtm=45He46q0v9188129135za200'></script> */}
+
+        <script type='text/partytown' dangerouslySetInnerHTML={{
+          __html: `
+            var firstScript = document.getElementsByTagName('script')[0];
+            var gtmDebugScript = document.createElement('script');
+            gtmDebugScript.async = true;
+            gtmDebugScript.src = 'https://www.googletagmanager.com/debug/bootstrap?id=GTM-P2SJ37K8&src=GTM&cond=2&gtm=45He46q0v9188129135za200';
+            firstScript.parentNode.insertBefore(gtmDebugScript, firstScript);
+          `
+        }} />
 
       </Head>
       <Component {...pageProps} />
