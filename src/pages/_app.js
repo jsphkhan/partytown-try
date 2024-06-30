@@ -21,8 +21,10 @@ export default function App({ Component, pageProps }) {
       url.hostname.includes('google-analytics') ||
       url.hostname.includes('www.googletagmanager.com')
     ) {
+      console.log('** url: ', url);
       const proxyUrl = new URL('https://cdn.builder.io/api/v1/proxy-api');
       proxyUrl.searchParams.append('url', url);
+      console.log('** proxyUrl', proxyUrl);
       return proxyUrl;
     }
 
